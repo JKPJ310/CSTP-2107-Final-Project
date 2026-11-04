@@ -4,24 +4,35 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
+    "predev": "npm run build:css",
+    "dev": "concurrently -k -n css,vite -c cyan,magenta \"npm run watch:css\" \"npm run dev:vite\"",
+    "dev:vite": "vite",
+    "watch:css": "tailwindcss -i ./src/App.css -o ./src/output.css --watch",
+    "build:css": "tailwindcss -i ./src/App.css -o ./src/output.css",
+    "build": "npm run build:css && vite build",
+    "lint": "oxlint",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.3.4",
     "react": "^19.3.1",
-    "react-dom": "^19.3.1"
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5",
+    "tailwindcss": "^4.3.4"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^10.0.6",
     "eslint": "^10.13.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.7",
     "globals": "^17.13.0",
     "vite": "^8.3.5"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true
   }
 }
