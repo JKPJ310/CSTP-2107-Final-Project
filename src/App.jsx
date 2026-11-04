@@ -9,10 +9,12 @@ import AssessmentPage from './Page/AssessmentPage'
 import ResultsPage from './Page/ResultsPage'
 import TipsPage from './Page/TipsPage'
 import NotFoundPage from './Page/NotFoundPage'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
     <div>
+      <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/assessment' element={<AssessmentPage />} />
