@@ -9,6 +9,7 @@ import AssessmentPage from './Page/AssessmentPage'
 import ResultsPage from './Page/ResultsPage'
 import TipsPage from './Page/TipsPage'
 import NotFoundPage from './Page/NotFoundPage'
+import SignupPage from './Page/SignupPage'
 import Navbar from './components/Navbar'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />} />
+        <Route path='/signup' element={<SignupPage />} />
         <Route path='/assessment' element={<AssessmentPage />} />
         <Route path='/results' element={<ResultsPage />} />
         <Route path='/tips' element={<TipsPage />} />
