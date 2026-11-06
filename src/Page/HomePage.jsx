@@ -39,9 +39,28 @@ const HomePage = () => {
                         className="relative w-28 h-28 my-6 flex items-center justify-center cursor-pointer group select-none"
                     >
                         <div className="absolute inset-0 rounded-full bg-primary-fixed-dim/25 blur-xl animate-gentle-pulse"></div>
-                        <div className="w-20 h-20 rounded-full bg-linear-to-tr from-primary-fixed/40 to-secondary-container flex items-center justify-center border border-primary/10 shadow-sm transition-transform duration-700 group-active:scale-95">
-                            <span className="material-symbols-outlined text-primary text-[26px] opacity-80">spa</span>
-                        </div>
+                        {/* Rising sun from the logo: peeks over the hill, rises and smiles on hover/focus */}
+                        <svg viewBox="80 80 352 352" className="relative w-24 h-24 transition-transform duration-700 group-active:scale-95" aria-hidden="true">
+                            <defs>
+                                <clipPath id="sun-clip">
+                                    <rect x="80" y="80" width="352" height="320" />
+                                </clipPath>
+                            </defs>
+                            <g clipPath="url(#sun-clip)">
+                                <g className="transition-transform duration-700 ease-out translate-y-[130px] group-hover:translate-y-0 group-focus-visible:translate-y-0">
+                                    <g stroke="#ff8a3d" strokeWidth="22" strokeLinecap="round" className="opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-hover:delay-300 group-focus-visible:opacity-100 group-focus-visible:delay-300">
+                                        <line x1="256" y1="99" x2="256" y2="121" />
+                                        <line x1="147" y1="141" x2="167" y2="161" />
+                                        <line x1="365" y1="141" x2="345" y2="161" />
+                                        <line x1="99" y1="242" x2="125" y2="242" />
+                                        <line x1="387" y1="242" x2="413" y2="242" />
+                                    </g>
+                                    <circle cx="255" cy="253" r="95" fill="#ffc83d" />
+                                    <path d="M214 244 Q256 284 297 244" fill="none" stroke="#0f5334" strokeWidth="20" strokeLinecap="round" className="[transform-box:fill-box] origin-top scale-y-15 transition-transform duration-500 group-hover:scale-y-100 group-hover:delay-500 group-focus-visible:scale-y-100 group-focus-visible:delay-500" />
+                                </g>
+                            </g>
+                            <path d="M88 340 C120 318 150 305 175 307 C220 310 260 352 312 352 C350 352 390 333 424 316 V387 Q424 423 388 423 H124 Q88 423 88 387 Z" fill="#2fa36b" />
+                        </svg>
                         <span className="absolute -bottom-5 whitespace-nowrap text-[11px] font-medium tracking-wide uppercase text-on-surface-variant/70">{hint}</span>
                     </button>
                     <h1 className="font-headline text-[30px] leading-[1.2] font-semibold tracking-[-0.02em] text-on-surface mt-2 max-w-[320px]">
