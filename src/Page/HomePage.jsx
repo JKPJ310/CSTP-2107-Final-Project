@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const mindStates = [
     { max: 30, text: 'Grounded & Clear', hint: 'Breathe in ease' },
@@ -8,6 +8,7 @@ const mindStates = [
 ]
 
 const HomePage = () => {
+    const navigate = useNavigate();
 
     const [mindLevel, setMindLevel] = useState(20);
     const [hint, setHint] = useState('Exhale softly');
@@ -117,7 +118,13 @@ const HomePage = () => {
                     <div className="pt-2 text-center">
                         <p className="text-[13px] text-on-surface-variant font-normal">
                             Already have an account?{' '}
-                            <button type="button" className="font-medium text-primary hover:underline ml-0.5">Log In</button>
+                            <button 
+                                type="button" 
+                                onClick={() => navigate('/login')} 
+                                className="font-medium text-primary hover:underline ml-0.5 cursor-pointer"
+                            >
+                                Log In
+                            </button>
                         </p>
                     </div>
                     <div className="mt-4 flex items-center justify-center gap-1.5 text-[11px] text-on-surface-variant/70">
