@@ -15,6 +15,31 @@
   --color-warn-soft: #fbefd6;
   --color-drain: #d34f5d;
   --color-drain-soft: #f9dde0;
+
+  /* Serene Balance (stitch homepage design) */
+  --font-headline: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary: #096444;
+  --color-primary-container: #2e7d5b;
+  --color-on-primary: #ffffff;
+  --color-primary-fixed: #a4f3ca;
+  --color-primary-fixed-dim: #88d6af;
+  --color-secondary-container: #eef4ef;
+  --color-surface: #fbfbfe;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f6f8fb;
+  --color-surface-container-high: #e4e9f4;
+  --color-on-surface: #161c27;
+  --color-on-surface-variant: #59655f;
+  --color-outline-variant: #e7ece8;
+
+  --animate-gentle-pulse: gentle-pulse 6s ease-in-out infinite;
+
+  @keyframes gentle-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.35; }
+    50% { transform: scale(1.18); opacity: 0.7; }
+  }
 }
 
 @layer base {

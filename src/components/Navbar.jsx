@@ -27,12 +27,8 @@ const Navbar = () => {
         <header className="sticky top-0 z-20 bg-paper/90 backdrop-blur border-b border-line">
             <nav className="max-w-5xl mx-auto flex items-center justify-between px-5 py-3">
                 <Link to='/' onClick={handleCloseMenu} className="flex items-center gap-2 font-display text-lg font-extrabold text-ink">
-                    <svg className="w-8 h-8" viewBox="0 0 64 64" aria-hidden="true">
-                        <rect x="6" y="18" width="46" height="28" rx="7" fill="none" stroke="currentColor" strokeWidth="4" />
-                        <rect x="53" y="26" width="6" height="12" rx="2" fill="currentColor" />
-                        <rect x="12" y="24" width="18" height="16" rx="3" className="fill-charge" />
-                    </svg>
-                    BRD
+                    <img src="/logo.png" alt="" className="w-8 h-8" />
+                    Equilibria
                 </Link>
                 {/* Desktop links */}
                 <ul className="hidden md:flex items-center gap-2">
