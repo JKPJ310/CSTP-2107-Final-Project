@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<meta content="mobile_tab" name="shell-type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#096444",
+            "primary-container": "#2e7d5b",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#d0ffe3",
+            "primary-fixed": "#a4f3ca",
+            "primary-fixed-dim": "#88d6af",
+            "secondary": "#556158",
+            "secondary-container": "#eef4ef",
+            "on-secondary-container": "#4a564d",
+            "surface": "#fbfbfe",
+            "surface-bright": "#fbfbfe",
+            "surface-dim": "#eef0f8",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f6f8fb",
+            "surface-container": "#edf1f9",
+            "surface-container-high": "#e4e9f4",
+            "on-surface": "#161c27",
+            "on-surface-variant": "#59655f",
+            "outline": "#d6ded8",
+            "outline-variant": "#e7ece8",
+            "background": "#fbfbfe"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans", "sans-serif"],
+            "body": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior-y: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    }
+    ::-webkit-scrollbar { display: none; }
+    
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); opacity: 0.35; }
+      50% { transform: scale(1.18); opacity: 0.7; }
+    }
+    .animate-gentle-pulse {
+      animation: gentlePulse 6s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased flex flex-col min-h-screen selection:bg-primary-fixed selection:text-primary">
+<!-- Clean, Calm Header -->
+<header class="fixed top-0 w-full z-40 pt-safe bg-surface/85 backdrop-blur-md border-b border-outline-variant/60">
+<div class="h-16 px-6 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<img alt="Equilibria" class="h-7 w-auto object-contain opacity-90" src="https://lh3.googleusercontent.com/aida/AEtjO1X4HdMCGbPPxHwFji60B21NJ3PJAGGJaiNCtcXqOHXdRGwmYsesCWaBJ1E970rgw6Tzfdh4xxvemWyCOWU9UJ8MmmlJ2FqHA3uin7LAd15t-BrTXkV5LZ1_y4EJQNzdl3Qc2NKa5YmZMCvRwAmtVSALIeI61KW_7uw6N9wqYVkcjQygncVkesmPnqprbraEG56Vz0FBAjIpZcUcvxVXy-vRklWZGbZdjB4T2nGgx5vY"/>
+<span class="font-headline font-semibold text-[17px] tracking-tight text-on-surface">Equilibria</span>
+</div>
+<button aria-label="Log In" class="text-[14px] font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5 rounded-full hover:bg-secondary-container">
+        Log In
+      </button>
+</div>
+</header>
+<!-- Main Content Flow -->
+<main class="flex-1 flex flex-col pt-24 pb-20 px-6 max-w-md mx-auto w-full justify-between">
+<!-- Hero / Poetic Value Proposition -->
+<div class="pt-6 pb-4 flex flex-col items-center text-center">
+<!-- Serene Ambient Breathing Sphere -->
+<div class="relative w-28 h-28 my-6 flex items-center justify-center cursor-pointer group select-none" id="meditative-orb" title="Tap to sync breath">
+<div class="absolute inset-0 rounded-full bg-primary-fixed-dim/25 blur-xl animate-gentle-pulse"></div>
+<div class="w-20 h-20 rounded-full bg-gradient-to-tr from-primary-fixed/40 to-secondary-container flex items-center justify-center border border-primary/10 shadow-sm transition-transform duration-700 group-active:scale-95">
+<span class="material-symbols-outlined text-primary text-[26px] opacity-80" id="orb-icon">spa</span>
+</div>
+<span class="absolute -bottom-5 text-[11px] font-medium tracking-wide uppercase text-on-surface-variant/70" id="orb-hint">Exhale softly</span>
+</div>
+<h1 class="font-headline text-[30px] leading-[1.2] font-semibold tracking-[-0.02em] text-on-surface mt-2 max-w-[320px]">
+        A quiet harbor for your cognitive energy.
+      </h1>
+<p class="text-[15px] leading-relaxed text-on-surface-variant font-normal mt-3 max-w-[300px]">
+        Pacing your workday gently before exhaustion takes over. No noise, just calm guidance.
+      </p>
+</div>
+<!-- Soft Interactive Mind-Weight Slider (Minimal & Soothing) -->
+<div class="w-full my-6 px-4 py-4 rounded-2xl bg-surface-container-lowest/80 border border-outline-variant/60 shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between text-[13px] text-on-surface-variant mb-3">
+<span class="font-medium text-on-surface">How heavy is your mind right now?</span>
+<span class="text-[12px] text-primary font-medium" id="mind-status">Grounded</span>
+</div>
+<input aria-label="Cognitive load state" class="w-full h-1.5 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary focus:outline-none" id="mind-slider" max="100" min="0" type="range" value="20"/>
+<div class="flex justify-between text-[11px] text-on-surface-variant/60 mt-2 font-normal">
+<span>Light &amp; Clear</span>
+<span>Carrying Weight</span>
+<span>Overwhelmed</span>
+</div>
+</div>
+<!-- Focused Entry & Auth Actions -->
+<div class="w-full flex flex-col items-center gap-3 pt-2">
+<button class="w-full h-12 rounded-xl bg-primary text-on-primary font-medium text-[15px] tracking-tight hover:bg-primary-container active:scale-[0.99] transition-all shadow-[0_1px_4px_rgba(9,100,68,0.2)] flex items-center justify-center gap-2">
+<span>Get Started</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="w-full h-12 rounded-xl bg-surface-container-lowest border border-outline-variant text-on-surface font-medium text-[14px] tracking-tight hover:bg-surface-container-low active:scale-[0.99] transition-all flex items-center justify-center gap-2.5">
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+<span>Continue with Google</span>
+</button>
+<div class="pt-2 text-center">
+<p class="text-[13px] text-on-surface-variant font-normal">
+          Already have an account? 
+          <button class="font-medium text-primary hover:underline ml-0.5">Log In</button>
+</p>
+</div>
+<div class="mt-4 flex items-center justify-center gap-1.5 text-[11px] text-on-surface-variant/70">
+<span class="material-symbols-outlined text-[13px]">shield_check</span>
+<span>100% private &amp; client-side • Bring your own API key</span>
+</div>
+</div>
+</main>
+<!-- Minimal Serene Footer -->
+<footer class="w-full pb-safe pt-2 bg-transparent text-center">
+<div class="h-10 flex items-center justify-center gap-4 text-[12px] text-on-surface-variant/60 font-light">
+<span>Quiet Mode</span>
+<span>•</span>
+<span>Evidence Based</span>
+<span>•</span>
+<span>Local First</span>
+</div>
+</footer>
+<script>
+    const slider = document.getElementById('mind-slider');
+    const statusText = document.getElementById('mind-status');
+    const hintText = document.getElementById('orb-hint');
+
+    const states = [
+      { max: 30, text: "Grounded & Clear", hint: "Breathe in ease" },
+      { max: 70, text: "Slight Tension", hint: "Soft shoulder release" },
+      { max: 100, text: "Cognitive Fatigue", hint: "Unclench jaw, take space" }
+    ];
+
+    slider.addEventListener('input', (e) => {
+      const val = parseInt(e.target.value, 10);
+      const match = states.find(s => val <= s.max);
+      if (match) {
+        statusText.textContent = match.text;
+        hintText.textContent = match.hint;
+      }
+    });
+
+    const orb = document.getElementById('meditative-orb');
+    let inhaling = false;
+    orb.addEventListener('click', () => {
+      inhaling = !inhaling;
+      hintText.textContent = inhaling ? "Inhale slowly..." : "Exhale completely...";
+    });
+  </script>
+</body></html>
