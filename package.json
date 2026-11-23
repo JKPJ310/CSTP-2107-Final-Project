@@ -11,25 +11,32 @@
     "build:css": "tailwindcss -i ./src/App.css -o ./src/output.css",
     "build": "npm run build:css && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "ai:sync": "node scripts/sync-ai-prompt.mjs",
+    "ai:deploy": "npm run ai:sync && npx supabase functions deploy ai-chat --remote=zdzawrzlceuzkcazwtdi --use-api && npx supabase functions deploy ai-memory --remote=zdzawrzlceuzkcazwtdi --use-api && npx supabase functions deploy ai-voice --remote=zdzawrzlceuzkcazwtdi --use-api",
+    "account:deploy": "npx supabase functions deploy delete-account --remote=zdzawrzlceuzkcazwtdi --use-api",
+    "login:deploy": "npx supabase functions deploy login --no-verify-jwt --remote=zdzawrzlceuzkcazwtdi --use-api"
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.3.4",
+    "@supabase/supabase-js": "^2.119.0",
+    "@tailwindcss/cli": "^4.3.5",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router-dom": "^7.18.5",
-    "tailwindcss": "^4.3.4"
+    "tailwindcss": "^4.3.5"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
-    "concurrently": "^10.0.6",
+    "concurrently": "^10.0.7",
     "eslint": "^10.13.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.7",
     "globals": "^17.13.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^7.0.2",
     "vite": "^8.3.5"
   },
   "allowScripts": {

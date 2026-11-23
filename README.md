@@ -1,16 +1,41 @@
-# React + Vite
+# Equilibria
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A calm, AI-integrated web app for people dealing with burnout (CSTP 2107).
+Write in a diary, talk to an AI that knows your context, set small recovery goals,
+and keep a comfort kit for bad days.
 
-Currently, two official plugins are available:
+Built with React, Vite, Tailwind CSS and Supabase.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Run it on your computer
 
-## React Compiler
+You need [Node.js](https://nodejs.org) 20 or newer.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```sh
+git clone https://github.com/JKPJ310/CSTP-2107-Final-Project
+cd CSTP-2107-Final-Project
+cp .env.example .env.local
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Then open **http://localhost:5173**. Use exactly this address: Supabase only sends
+sign-ins back to the addresses it has been told about.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+`.env.local` holds the Supabase settings and is never committed. `.env.example` has the
+values to copy; both are public by design (the database's row rules protect the data).
+Never put a secret key, service_role key or AI key in either file.
+
+## Signing in with Google
+
+While Google sign-in is in testing mode, only approved Gmail accounts can use it.
+Ask the project owner to add your Gmail under **Google Cloud Console → APIs & Services →
+OAuth consent screen → Audience → Test users**.
+
+## Project layout
+
+- `src/Page/`: one file per screen
+- `src/components/`: reusable pieces
+- `src/lib/`: everything that talks to Supabase or the AI
+- `src/data/`: wording you can edit without touching code
+- `supabase/migrations/`: database setup, run in order in the Supabase SQL Editor
+- `supabase/functions/`: server code (`ai-chat`, `login`); secrets live in Supabase, not here
