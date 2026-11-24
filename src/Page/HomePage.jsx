@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import FormNotice from '../components/auth/FormNotice'
 import GoogleIcon from '../components/GoogleIcon'
 import { Link, useNavigate } from 'react-router-dom'
+import { googleSignInProblem, signInWithGoogle } from '../lib/supabase'
 
 const mindStates = [
     { max: 30, text: 'Grounded & Clear', hint: 'Breathe in ease' },
@@ -21,6 +23,15 @@ const HomePage = () => {
         const value = parseInt(e.target.value, 10);
         setMindLevel(value);
         setHint(mindStates.find((state) => value <= state.max).hint);
+    }
+
+    const [googleError, setGoogleError] = useState(null);
+
+    // Goes straight to Google's account chooser; /auth/callback then sends new accounts to onboarding
+    const handleGoogle = async () => {
+        setGoogleError(null);
+        const { error } = await signInWithGoogle();
+        if (error) setGoogleError(googleSignInProblem());
     }
 
     const handleOrbClick = () => {
@@ -107,12 +118,13 @@ const HomePage = () => {
                     </Link>
                     <button
                         type="button"
-                        onClick={() => navigate('/login')}
+                        onClick={handleGoogle}
                         className="w-full h-12 rounded-xl bg-surface-container-lowest border border-outline-variant text-on-surface font-medium text-[14px] tracking-tight hover:bg-surface-container-low active:scale-[0.99] transition-all flex items-center justify-center gap-2.5"
                     >
                         <GoogleIcon />
                         <span>Continue with Google</span>
                     </button>
+                    {googleError && <FormNotice>{googleError}</FormNotice>}
                     <div className="pt-2 text-center">
                         <p className="text-[13px] text-on-surface-variant font-normal">
                             Already have an account?{' '}
