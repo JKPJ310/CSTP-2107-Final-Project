@@ -6,6 +6,8 @@ and keep a comfort kit for bad days.
 
 Built with React, Vite, Tailwind CSS and Supabase.
 
+**Live app:** https://ai-burnout-bice.vercel.app
+
 ## Run it on your computer
 
 You need [Node.js](https://nodejs.org) 20 or newer.
